@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const {getCountries, getByCountryId } = require('../controllers/country.controlles');
+ const express = require('express');
+ const router = express.Router();
 
-router.get('/', getCountries);
-router.get('/:idPais', getByCountryId);
-//router.get('/name', getByCountryId);
+ const {getCountries, getByCountryId, getCountriesByName } = require('../controllers/country.controlles');
 
-
-module.exports = router;
+ 
+ router.get('/', getCountries);
+ router.get('/:idPais', getByCountryId);
+ router.get('/countries/name', getCountriesByName);
+ 
+ module.exports = router;

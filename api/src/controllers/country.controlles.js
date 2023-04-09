@@ -1,3 +1,4 @@
+const express = require('express');
 const { Country, Activity } = require ('../db');
 const {Op} = require('sequelize');
 const { getDbData } = require('../controllers/api.controllers');
@@ -23,14 +24,14 @@ async function getCountries (req, res) {
  }
 
  async function getByCountryId (req, res) {
-    const { id } = req.params;
-     if (!id) return res.status(404).send({message: 'Debes ingresar un ID'});
+     const { idPais } = req.params;
+     if (!idPais) return res.status(404).send({message: 'Should enter an ID'});
     try {
          const country = await Country.findAll({
-             where:{ id: id },
+             where:{ id: idPais },
             include: {
                  model: Activity,
-                 attributes: ['name','difficulty', 'duration', 'season'],
+                 attributes: ['id','name','dificulty', 'duration', 'season'],
                     through: {
                          attributes: [],
                      }
@@ -38,11 +39,24 @@ async function getCountries (req, res) {
          })
        res.send(country);
      } catch (error) {
-         res.status(404).send({ message: 'Debe ingresar in ID válido'})
+         res.status(404).send({ message: 'Should enter a valid ID'})
      }
 }
+//-------------------------funcion name-------------------------
+ 
+  const getCountriesByName = async (req, res) => {
+    const name = req.query.name.toLowerCase(); // Convertir el nombre a minúsculas
+    console.log(name)
+    const countries = await Country.find({ name: { $regex: name, $options: 'i' } }); // Buscar países que coincidan con el nombre
+    if (countries.length === 0) { // Si no se encontraron países, devolver un mensaje adecuado
+      return res.status(404).json({ message: `No se encontraron países con el nombre '${name}'` });
+    }
+    res.json(countries); // Devolver los países encontrados
+  };
+  
 
 module.exports = {
     getCountries,
-getByCountryId   
+getByCountryId,
+getCountriesByName   
 }
