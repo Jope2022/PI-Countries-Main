@@ -2,16 +2,17 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define('activity', {
-  id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+  countryId: {
+      type: DataTypes.STRING,
       primaryKey: true, 
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false
     },
     difficulty:{
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate:{
         min:1,
         max:5

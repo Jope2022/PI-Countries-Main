@@ -2,7 +2,6 @@ const { Country, Activity } = require ('../db');
 const axios = require('axios');
 
 async function getDbData (req, res) {
-    //API call and database load
     try {  
         let apiCall = await axios.get('https://restcountries.com/v3/all');
         apiCall = await apiCall.data.map (async (country) => {
@@ -18,13 +17,15 @@ async function getDbData (req, res) {
                     subregion: country.subregion ? country.subregion : "Not found",
                     area: country.area,
                     poblation: country.population
+                   
                 }
-            });
+               
+            }); 
         })
         const apiData = await Country.findAll({
             include: {
                 model: Activity,
-                attributes: ['name', 'dificulty', 'duration', 'season'],
+                attributes: ['name', 'difficulty', 'duration', 'season'],
                     through: {
                         attributes: [],
                     }

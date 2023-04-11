@@ -1,11 +1,14 @@
- const express = require('express');
+const express = require('express');
  const router = express.Router();
 
- const {getCountries, getByCountryId, getCountriesByName } = require('../controllers/country.controlles');
+ const {getCountries} = require('../controllers/country.controlles');
+ const {getByCountryId } = require('../controllers/country.Pais.controlles');
+ const {getApiData} = require('../controllers/country.Name.Controlles');
+
+ router.get('/', getCountries);
+ router.get('/name', getApiData);
+ router.get('/:idPais', getByCountryId);
 
  
- router.get('/', getCountries);
- router.get('/:idPais', getByCountryId);
- router.get('/countries/name', getCountriesByName);
- 
  module.exports = router;
+ 
