@@ -30,16 +30,16 @@ conn.sync({ force: true }).then(() => {
     .then(response => {
       // Guardar los datos en la base de datos
       const countriesData = response.data;
-      const dataApi = countriesData.map(cont => {
-        return {
+      const dataApi = countriesData.map((cont, i) => {
+       return {
           id: cont.cca3,
           name: cont.name.common,
-          imageFlag: cont.flag[0],
+          flag: cont.flags.png,
           continent: cont.continents[0],
           capital: cont.capital != undefined ? cont.capital[0] : "No se encontro la capital",
           subregion: cont.subregion,
           area: cont.area,
-          population: cont.population
+          poblation: cont.population
         }
       })
       Country.bulkCreate(dataApi)

@@ -17,10 +17,8 @@ async function getDbData (req, res) {
                     subregion: country.subregion ? country.subregion : "Not found",
                     area: country.area,
                     poblation: country.population
-                   
                 }
-               
-            }); 
+            });
         })
         const apiData = await Country.findAll({
             include: {

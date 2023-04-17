@@ -1,5 +1,4 @@
 const { Activity } = require('../db');
-const { getAllActivities } = require("../controllers/activityGet")
 
 const activities = [];
 const getActivity = async (req, res) => {

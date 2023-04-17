@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid #ccc;
+  outline: none;
+}
+
+button[type="submit"] {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+/* Modificación de los estilos para los elementos contenedores */
+.submit-button {
+  display: inline-block; /* Mostrar los elementos en línea */
+  width: calc(33.33% - 20px); /* Ancho del contenedor con margen incluido */
+  margin: 0 10px 20px; /* Espacio entre cada elemento */
+  text-align: center;
+}
+
+.submit-button h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.submit-button img {
+  width: 150px;
+  height: auto;
+}
+
+.submit-button h5 {
+  margin-top: 5px;
+  font-size: 16px;
+}
