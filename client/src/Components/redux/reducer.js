@@ -5,7 +5,7 @@ const initialState = {
     loading : true,
     countries : [],
     quest : [],
-    details : [],
+    details : {},
     filtered : [],
     activities : [],
     currentPage: 1,

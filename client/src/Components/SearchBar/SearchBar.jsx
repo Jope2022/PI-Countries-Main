@@ -2,6 +2,7 @@ import React, {useState, useEffect  } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { searchCountries  } from "../redux/actions.js";
 import './SearchBar.css';
+import { Link } from 'react-router-dom';
 
 
 const SearchBar = () => {
@@ -38,12 +39,13 @@ const SearchBar = () => {
             </form>
             
             {paisesNombre.map(paisName =>
-                <div className="submit-button" key={paisName.name}>
-                    <h3>{paisName.name}</h3>
-                    <img src={paisName.flag} alt="" />
-                    <div>
-                     <h5>Continent: {paisName.continent}</h5>
-                    </div>
+                   <div className="submit-button" key={paisName.name}>
+                    <h3> <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link> </h3>       
+                    
+                   <img src={paisName.flag} alt="" />
+                   <div>
+                   <h5>Continent: {paisName.continent}</h5>
+                   </div>
                 </div>
             )}
         </div>

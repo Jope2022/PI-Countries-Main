@@ -12,10 +12,10 @@ const LandingPage = () => {
     }
    return (
         <div className="container">
-            <h1 >Bienvenido a un espacio dedicado a todos los paises del mundo...</h1>
-            <h2> Ingresa a la aplicacion</h2>
-            <Link to='/home'>  
-              <button onClick={handleClick}>Ingresar</button>
+            <h1 className="title">Bienvenido a un espacio dedicado a todos los paises del mundo...</h1>
+            <h2 className="subtitle"> Ingresa a la App</h2>
+            <Link to='/home' className="link">  
+              <button className="button" onClick={handleClick}>Ingresar</button>
             </Link>
         </div>
     ) 

@@ -1,54 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Loading from "../Loading/Loading";
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import {getDetail} from "../redux/actions"
+import { useParams } from 'react-router-dom';
+import "./countryDetail.css"
 
 
 const CountryDetail = () => {
-    const details = useSelector( state => state.details[0]);
-    const countries= [];
-    return (
-        <div>
-            {details.length ?
-                <div>
-                    <div>
-                        {countries.map((country) => (
-                            <div key={country.id}>
-                                <Link to={`/country/${country.id}`}>{country.name}</Link>
-                            </div>
-                        ))}
-        </div> 
-                        <img src={details.flag} alt="Not found"/>
-                        <h1>{details.name}</h1>
-                        <div>
-                            <h2>Id: {details.id}</h2>
-                            <h2>Capital: {details.capital}</h2>
-                            <h2>Continent: {details.continent}</h2>
-                            <h2>Sub-Region: {details.sub_region}</h2>
-                            <h2>Area: {details.area}</h2>
-                            <h2>Population: {details.population}</h2>
-                        </div>
-                        <div>
-                            {
-                                details.activities?.map( activity => {
-                                    return (
-                                        <div>
-                                            <h2>Activity</h2>
-                                            <div>
-                                                <h3>{activity.name}</h3>
-                                                <h3>Difficulty: {activity.difficulty}</h3>
-                                                <h3>Duration: {activity.duration}</h3>
-                                                <h3>Season: {activity.season}</h3>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div> : <Loading/>
-            }
-        </div>
-    );
-};
+  const dispatch = useDispatch();
+  const {idPais} = useParams();
+  const pais = useSelector(state => state.details);
 
+  useEffect(() =>{ 
+  dispatch(getDetail(idPais))
+     }, [idPais]);
+           
+  return (
+    <div>
+         <div className="submit-button1" key={pais.name}>
+         <p>{pais.name}</p>
+         <img src={pais.flag ? pais.flag: "no hay banderas"} alt="" />
+          <p>Id: {pais.id}</p>
+          <p>Capital: {pais.capital}</p>
+          <p>Continent: {pais.continent}</p>
+          <p>SubRegion: {pais.subregion}</p>
+          <p>Area: {pais.area}</p>
+          <p>Poblation: {pais.poblation}</p>
+          </div>
+          </div>
+  )
+ }
 export default CountryDetail;
+

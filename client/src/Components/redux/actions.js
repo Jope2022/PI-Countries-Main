@@ -24,12 +24,12 @@ export const getCountries = () => {
         }
     }
 }
-export const setCurrentPage = (pageNumber) => {
-    return {
-        type: 'SET_CURRENT_PAGE',
-        payload: pageNumber
-    }
-}
+// export const setCurrentPage = (pageNumber) => {
+//     return {
+//         type: 'SET_CURRENT_PAGE',
+//         payload: pageNumber
+//     }
+// }
 
 export const searchCountries = (input) => {
     return async (dispatch) => {
@@ -48,9 +48,10 @@ export const searchCountries = (input) => {
 }
 
 export const getDetail = (id) => {
-    return async (dispatch) => {
+    return async function(dispatch){
         try {
-            const detail = await axios.get('http://localhost:3001/countries/' + id);
+            let detail = await axios.get(`http://localhost:3001/countries/${id}`);
+            console.log(detail, "linea 54")
             return dispatch({
                 type: GET_DETAIL,
                 payload: detail.data

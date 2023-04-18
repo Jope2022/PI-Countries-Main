@@ -7,6 +7,7 @@ import ActivityCreate from './Components/ActivityCreate/ActivityCreate';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Country from "./Components/Country/Country";
 import ActivityList from './Components/ActivityList/ActivityList';
+import Activity from './Components/Activity/Activity';
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Route path="/" exact component={LandingPage} />
         <Route path="/home" component={Home} />
         <Route exact path="/countries" component={Country}/>
-        <Route exact path="/countries?name=" component={SearchBar}/>
-        <Route exact path="/countries/:id" component={CountryDetail}/>
+        <Route exact path="/countries/:idPais" component={CountryDetail}/> // recordar esta ruta
+        {/* <Route exact path="/countries?name=" component={Activity}/>  */}
         <Route path="/create-activity" component={ActivityCreate}/> 
         <Route path="/activities" component={ActivityList}/> 
       </Switch>
