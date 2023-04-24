@@ -14,7 +14,7 @@ const input = location.search.slice(6);
 
 useEffect(() =>{
     dispatch(searchCountries(input));
-     }, []);
+     }, [dispatch, input]);
 
      return( 
     <div>

@@ -13,7 +13,7 @@ export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const getCountries = () => {
     return async (dispatch) => {
         try {
-            const requestCountries = await axios.get('http://localhost:3001/countries')
+            const requestCountries = await axios.get(`http://localhost:3001/countries`)
             return dispatch({
                 type: GET_COUNTRIES,
                 payload: requestCountries.data
@@ -24,19 +24,12 @@ export const getCountries = () => {
         }
     }
 }
-// export const setCurrentPage = (pageNumber) => {
-//     return {
-//         type: 'SET_CURRENT_PAGE',
-//         payload: pageNumber
-//     }
-// }
-
-export const searchCountries = (input) => {
+export const searchCountries = (idPais) => {
     return async (dispatch) => {
         try {
-            const search = await axios.get('http://localhost:3001/countries?name=' + input)
-            return dispatch({
-                type: SEARCH_COUNTRIES,
+            const search = await axios.get(`http://localhost:3001/countries?name=${idPais}`)
+             return dispatch({
+                   type: SEARCH_COUNTRIES,
                 payload: search.data
             });
          
@@ -51,7 +44,6 @@ export const getDetail = (id) => {
     return async function(dispatch){
         try {
             let detail = await axios.get(`http://localhost:3001/countries/${id}`);
-            console.log(detail, "linea 54")
             return dispatch({
                 type: GET_DETAIL,
                 payload: detail.data
@@ -66,7 +58,7 @@ export const getDetail = (id) => {
 export const  getActivities = () => {
     return async (dispatch) => {
         try {
-            const activities = await axios.get('http://localhost:3001/activity');
+            const activities = await axios.get(`http://localhost:3001/activity`);
             return dispatch({
                 type: GET_ACTIVITIES,
                 payload: activities.data
@@ -98,7 +90,7 @@ export const filterByActivity = (payload) => {
     }
 }
 export const orderByName = (payload) => {
-    return {
+   return {
         type: ORDER_BY_NAME,
         payload
     }
@@ -107,5 +99,5 @@ export const orderByPopulation = (payload) => {
     return {
         type: ORDER_BY_POPULATION,
         payload
-    }
+}
 }

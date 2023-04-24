@@ -12,11 +12,11 @@ async function getDbData (req, res) {
                 },
                 defaults: {
                     flag: country.flags[0],
-                    continent: country.continents[0],
+                    continents: country.continents[0],
                     capital: country.capital ? country.capital[0] : "Not found" ,
                     subregion: country.subregion ? country.subregion : "Not found",
                     area: country.area,
-                    poblation: country.population
+                    population: country.population
                 }
             });
         })

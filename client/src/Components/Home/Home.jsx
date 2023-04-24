@@ -1,20 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 import NavBar from '../NavBar/NavBar';
-import Loading from '../Loading/Loading'
-
+import Loading from '../Loading/Loading';
 
 const Home = () => {    
     const isLoading = useSelector( state => state.loading );
-
     return (
         <div >
-              {
-             isLoading ? <Loading/> :
+             {
+            isLoading ? <Loading/> :
                 <div>
-                    <NavBar/>
+                  <NavBar/>
                 </div>
-            }
+             }
         </div>
     )
 };

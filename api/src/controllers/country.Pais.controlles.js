@@ -3,7 +3,7 @@ const { Country, Activity } = require ('../db');
 
 async function getByCountryId (req, res) {
      const { idPais } = req.params;
-     if (!idPais) return res.status(404).send({message: 'Should enter an ID'});
+     if (!idPais) return res.status(404).send({message: 'Debe ingresar una identificación'});
     try {
          const country = await Country.findOne({
              where:{ id: idPais },

@@ -2,17 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import "./NavBar.css";
+import{getCountries} from "../redux/actions";
+import { useDispatch } from 'react-redux';
 
 const NavBar = () => {
-    return (
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(getCountries());
+ }
+return (
         <nav className="navbar">
-            <SearchBar />
             <div className="navbar-links">
-                <Link to="/home">Home</Link>
-                <Link to="/create-activity">Create Activity</Link>
-                <Link to="/activities">List of Activities</Link>
-            </div>
-        </nav>
+                <Link to="/home">Inicio</Link>
+                <Link to="/create-activity">Crear actividad</Link>
+                <Link to="/activities">Lista de actividades</Link>
+                <Link to='/countries' className="link">  
+                     <button className="button" onClick={handleClick}>Filtrar/Ordenar</button>
+                </Link> 
+                <Link to='/paginatedetalle' className="link">  
+                     <button className="button" onClick={handleClick}>Paginado</button>
+                </Link> 
+             </div>
+                <SearchBar />
+            </nav>
     );
 };
 

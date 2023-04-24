@@ -4,14 +4,15 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-    border: 2px solid #ccc; 
+    border: 1px solid #ccc; /* borde más delgado */
     padding: 20px; 
-  }
+   }
   
   .submit-button1 img {
     width: 300px;
     height: 250px;
     margin-bottom: 20px;
+   
   }
   
   .submit-button1 p {
@@ -20,4 +21,3 @@
     font-weight: bold; 
     text-align: center; 
   }
-  

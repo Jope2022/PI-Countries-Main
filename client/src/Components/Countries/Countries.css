@@ -1,0 +1,78 @@
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filterAndOrder {
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filterAndOrder:hover {
+  cursor: pointer;
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+/* //------------------Paginado */
+.containerPag {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5vh auto;
+  max-width: 200px;
+}
+
+.container > div {
+  flex: 1;
+  margin: 15px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+  text-align: center;
+  height: calc((100vh - 110px) / 3);
+  max-width: calc(60% - 20px);
+}
+
+.container > div:nth-child(2n) {
+  margin-right: 0;
+}
+
+.container > div > img {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+}
+
+.container > div > p {
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+

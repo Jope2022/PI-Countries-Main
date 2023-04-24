@@ -1,5 +1,6 @@
 import { FILTER_BY_ACTIVITIES, FILTER_BY_CONTINENT, GET_ACTIVITIES, GET_COUNTRIES, GET_DETAIL, 
-    ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITIES, SEARCH_COUNTRIES, SET_CURRENT_PAGE } from  "./action-types";
+    ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITIES, SEARCH_COUNTRIES, 
+    SET_CURRENT_PAGE } from  "./action-types";
 
 const initialState = {
     loading : true,
@@ -47,10 +48,11 @@ export default function rootReducer( state = initialState, action) {
             }
 
         case FILTER_BY_CONTINENT:
-            const filterByContinent = action.payload === "ALL" ? state.countries : state.countries.filter (country => country.continent === action.payload)
+            const filterByContinent = action.payload === "ALL" ? state.countries : 
+            state.countries.filter (country => country.continents === action.payload)
             return {
                 ...state,
-                filtered: filterByContinent
+                countries: filterByContinent
             }
 
         case FILTER_BY_ACTIVITIES:
@@ -72,35 +74,30 @@ export default function rootReducer( state = initialState, action) {
             return {...state}
             
         case ORDER_BY_NAME:
-            const orderByName = action.payload === "ASCENDANT" ? state.countries.sort ((a, b) => {
-                if (a.name < b.name) return -1;
-                if (a.name > b.name) return 1;
-                return 0;
-            }) : state.countries.sort((a, b) => {
-                if (a.name < b.name) return 1;
-                if (a.name > b.name) return -1;
-                return 0;
-            })
-            return {
+             return {
                 ...state,
-                filtered: orderByName
+                countries: action.payload === "ASCENDANT" ? [...state.countries].sort ((a, b) => {
+                    return a.name.localeCompare(b.name);
+                 }) : [...state.countries].sort((a, b) => {
+                    return b.name.localeCompare(a.name);
+                 })
             }
-            
-            case ORDER_BY_POPULATION:
-                const orderByPopulation = action.payload === "MAJOR" ? state.countries.sort ((a, b) => {
-                    if (a.population < b.population) return 1;
-                    if (a.population > b.population) return -1;
-                    return 0;
-                }) : state.countries.sort((a, b) => {
-                    if (a.population < b.population) return -1;
-                    if (a.population > b.population) return 1;
-                    return 0;
-                })
-                return {
-                    ...state,
-                    filtered: orderByPopulation
-                }
         
-        default: return state
-    }
+            case ORDER_BY_POPULATION:
+                    const sortedCountries = [...state.countries].slice().sort((a, b) => {
+                        if (action.payload === "ASCENDANT") {
+                            return a.population - b.population;
+                        } else {
+                            return b.population - a.population;
+                        }
+                    });
+                    return {
+                        ...state,
+                        countries: sortedCountries
+                    }
+                default: 
+                    return state;
+                
 }
+}
+

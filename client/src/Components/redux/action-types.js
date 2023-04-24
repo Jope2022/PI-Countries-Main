@@ -12,7 +12,7 @@ export const ASCENDANT = 'ASCENDANT'
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT'
 export const FILTER_BY_ACTIVITIES = 'FILTER_BY_ACTIVITIES'
 
-export const ALL = 'All'
+export const ALL = 'ALL'
 export const ALL_OF_N_AMERICA = "North America"
 export const ALL_OF_S_AMERICA = "South America"
 export const ALL_OF_ASIA = "Asia"
@@ -21,7 +21,7 @@ export const ALL_OF_EUROPE = "Europe"
 export const ALL_OF_OCEANIA = "Oceania"
 export const ALL_OF_ANTARCTICA = "Antarctica"
 
-export const ORDER_BY_POPULATION = 'POPULATION'
+export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION'
 export const MAJOR_POPULATION = 'MAJOR_POPULATION'
 export const MINOR_POPULATION = 'MINOR_POPULATION'
 

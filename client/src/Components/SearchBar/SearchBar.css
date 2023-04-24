@@ -4,49 +4,55 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+ }
+
+.input[type="text"] {
+  border-radius: 0.5em;
+  margin-left: 17em;
+  padding: 0.5em;
+  border: solid #06d6a0;
+  color: #370617;
+  font-weight: 700;
+  font-size: 1em;
+  background-color:antiquewhite;
 }
 
-input[type="text"] {
-  width: 300px;
-  height: 40px;
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
-  border: 2px solid #ccc;
-  outline: none;
-}
-
-button[type="submit"] {
-  width: 100px;
-  height: 40px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
+.button[type="submit"] {
+  margin: 4px 2px;
+  padding: 10px 32px;
+  border-radius: 5px;
+  background-color: #8f7dec;
   border: none;
-  border-radius: 0 10px 10px 0;
+  font-size: 16px;
   cursor: pointer;
-}
+} 
 
-/* Modificación de los estilos para los elementos contenedores */
+
+
 .submit-button {
-  display: inline-block; /* Mostrar los elementos en línea */
-  width: calc(33.33% - 20px); /* Ancho del contenedor con margen incluido */
-  margin: 0 10px 20px; /* Espacio entre cada elemento */
+  display: inline-block;
+  width: calc(18.33% - 20px); 
+  margin: 0 10px 10px; 
   text-align: center;
+    
 }
 
 .submit-button h3 {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: 24px;
+  color: #fff;
 }
 
 .submit-button img {
   width: 150px;
   height: auto;
+
 }
 
 .submit-button h5 {
   margin-top: 5px;
   font-size: 16px;
+  color: #fff;
 }
+
