@@ -4,41 +4,60 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const SearchBar = () => {
-   const paisesNombre = useSelector((state) => state.countries);
+  const paisesNombre = useSelector((state) => state.countries);
   const [name, setName] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [resultsPerPage, setResultsPerPage] = useState(10);
 
   const handleChange = (event) => {
     setName(event.target.value);
   };
 
-  
   useEffect(() => {
-    setSearchResults(paisesNombre.filter(pais => pais.name.toLowerCase().includes(name.toLowerCase())));
-  }, [name, paisesNombre]);
+    setCurrentPage(1); // Resetear la página actual al cambiar la búsqueda
+  }, [name]);
+
+  const indexOfLastResult = currentPage * resultsPerPage;
+  const indexOfFirstResult = indexOfLastResult - resultsPerPage;
+  const currentResults = paisesNombre
+    .filter(pais => pais.name.toLowerCase().includes(name.toLowerCase()))
+    .slice(indexOfFirstResult, indexOfLastResult);
+
+  const totalPages = Math.ceil(paisesNombre.length / resultsPerPage);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div >
-        <input
-          className="form"
-          type="search"
-          value={name}
-          placeholder="Buscar un Pais......"
-          onChange={handleChange}
-        />
-     {/* <button className="button" onClick={handlerDispach}>Buscar</button> */}
-
-     {searchResults.map((paisName) => (
+    <div>
+      <input
+        className="form"
+        type="search"
+        value={name}
+        placeholder="Buscar un Pais......"
+        onChange={handleChange}
+      />
+      {currentResults.map((paisName) => (
         <div className="submit-button" key={paisName.name}>
           <h3>
             <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link>
           </h3>
           <img src={paisName.flag} alt="" />
           <div>
-            <h5>Continent: {paisName.continents}</h5>
+            <h5>Continente: {paisName.continent}</h5>
           </div>
         </div>
       ))}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
+          <button
+            key={pageNumber}
+            className={pageNumber === currentPage ? "active" : ""}
+            onClick={() => paginate(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

@@ -22,10 +22,10 @@ const CountryDetail = () => {
          <img src={pais.flag ? pais.flag: "no hay banderas"} alt="" />
           <p>Id: {pais.id}</p>
           <p>Capital: {pais.capital}</p>
-          <p>Continent: {pais.continents}</p>
+          <p>Continent: {pais.continent}</p>
           <p>SubRegion: {pais.subregion}</p>
           <p>Area: {pais.area}</p>
-          <p>Poblation: {pais.population}</p>
+          <p>Poblation: {pais.poblation}</p>
           <button onClick={() => history.goBack()}>Regresar</button>
      </div>
     </div>

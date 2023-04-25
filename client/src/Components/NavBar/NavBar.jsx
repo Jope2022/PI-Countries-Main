@@ -20,10 +20,7 @@ return (
                 <Link to='/countries' className="link">  
                      <button className="button" onClick={handleClick}>Filtrar/Ordenar</button>
                 </Link> 
-                <Link to='/paginatedetalle' className="link">  
-                     <button className="button" onClick={handleClick}>Paginado</button>
-                </Link> 
-             </div>
+            </div>
                 <SearchBar />
             </nav>
     );

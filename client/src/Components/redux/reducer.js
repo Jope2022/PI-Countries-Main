@@ -49,7 +49,7 @@ export default function rootReducer( state = initialState, action) {
 
         case FILTER_BY_CONTINENT:
             const filterByContinent = action.payload === "ALL" ? state.countries : 
-            state.countries.filter (country => country.continents === action.payload)
+            state.countries.filter (country => country.continent === action.payload)
             return {
                 ...state,
                 countries: filterByContinent
@@ -86,9 +86,9 @@ export default function rootReducer( state = initialState, action) {
             case ORDER_BY_POPULATION:
                     const sortedCountries = [...state.countries].slice().sort((a, b) => {
                         if (action.payload === "ASCENDANT") {
-                            return a.population - b.population;
+                            return a.poblation - b.poblation;
                         } else {
-                            return b.population - a.population;
+                            return b.poblation - a.poblation;
                         }
                     });
                     return {
