@@ -1,49 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCountries, searchCountries } from '../redux/actions.js';
 import './SearchBar.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const SearchBar = () => {
-  const dispatch = useDispatch();
-  const paisesNombre = useSelector((state) => state.countries);
-  const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([{}]);
+   const paisesNombre = useSelector((state) => state.countries);
+  const [name, setName] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (event) => {
-    console.log(event, "accion 1")
-    setQuery(event.target.value);
+    setName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    console.log(event, "accion 2")
-    event.preventDefault();
-    dispatch(searchCountries());
-  };
-
+  
   useEffect(() => {
-    console.log(paisesNombre, "accion 3")
-    setSearchResults(paisesNombre);
-  }, [paisesNombre]);
+    setSearchResults(paisesNombre.filter(pais => pais.name.toLowerCase().includes(name.toLowerCase())));
+  }, [name, paisesNombre]);
 
   return (
-    <div>
-      <form className="form" onSubmit={handleSubmit}>
+    <div >
         <input
-          className="input"
-          type="text"
-          id="title"
-          autoComplete="off"
-          value={query}
-          placeholder="Buscar Paises..."
+          className="form"
+          type="search"
+          value={name}
+          placeholder="Buscar un Pais......"
           onChange={handleChange}
         />
+     {/* <button className="button" onClick={handlerDispach}>Buscar</button> */}
 
-        <button className="button" type="submit">
-          Buscar
-        </button>
-      </form>
-      {searchResults.map((paisName) => (
+     {searchResults.map((paisName) => (
         <div className="submit-button" key={paisName.name}>
           <h3>
             <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link>
