@@ -1,0 +1,11 @@
+.activity-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+  
+  .activity-title p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  

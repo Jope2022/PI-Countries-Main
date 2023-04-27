@@ -1,0 +1,60 @@
+.formActivitiList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+
+ }
+
+ .formActivitiList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.formActivitiList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: stretch;
+  padding: 20px;
+}
+
+.formActivitiList h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px; 
+  margin-bottom: 10px;
+  width: calc(33.33% - 10px); 
+  max-width: 500px;
+}
+
+.activity h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.activity p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+

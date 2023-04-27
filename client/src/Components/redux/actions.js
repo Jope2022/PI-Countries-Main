@@ -56,9 +56,10 @@ export const getDetail = (id) => {
 }
 
 export const  getActivities = () => {
+    console.log("accion 3")
     return async (dispatch) => {
         try {
-            const activities = await axios.get(`http://localhost:3001/activity`);
+            const activities = await axios.get(`http://localhost:3001/activities`);
             return dispatch({
                 type: GET_ACTIVITIES,
                 payload: activities.data
@@ -71,7 +72,7 @@ export const  getActivities = () => {
 }
 export const postActivities = (payload) => {
     return async (dispatch) => {
-        await axios.post('http://localhost:3001/activity', payload);
+        await axios.post('http://localhost:3001/activities', payload);
         return dispatch({
             type: POST_ACTIVITIES,
         })

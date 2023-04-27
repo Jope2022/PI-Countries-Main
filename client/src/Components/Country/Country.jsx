@@ -24,7 +24,7 @@ const Country = () => {
                     <p>Continents: {pais.continents}</p>
                     <p>SubRegion: {pais.subregion}</p>
                     <p>Area: {pais.area}</p>
-                    <p>Population: {pais.population}</p>
+                    <p>Population: {pais.poblation}</p>
                   </div>
               </div>
               ))}

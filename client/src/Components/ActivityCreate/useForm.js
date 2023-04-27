@@ -39,18 +39,20 @@ export const useForm = ( initialForm, validateForm ) => {
         }
     };
 
-    const handleDelete = (idCountry) => {
-        setForm({
-            ...form,
-            id: form.id.filter( id => id !== idCountry)
-        });
-    };
+    // const handleDelete = (idCountry) => {
+    //     let pais =  form.countryId.filter( countryId => countryId !== idCountry)
+    //     let paisName = pais.join()
+    //     setForm({
+    //         ...form,
+    //         countryId: paisName
+    //             });
+    // };
 
     const handleSelect = (event) => {
         const { value } = event.target;
         setForm({
             ...form,
-            id: [...form.id, value]
+            countryId: value
         })
     }
 
@@ -60,7 +62,6 @@ export const useForm = ( initialForm, validateForm ) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        handleDelete,
         handleSelect
     }
 }

@@ -26,7 +26,7 @@ export const MAJOR_POPULATION = 'MAJOR_POPULATION'
 export const MINOR_POPULATION = 'MINOR_POPULATION'
 
 export const SUMMER = 'Summer'
-export const  AUTUM = 'autum'
+export const AUTUMN = 'Autumn'
 export const WINTER = 'Winter'
 export const SPRING = 'Spring'
 

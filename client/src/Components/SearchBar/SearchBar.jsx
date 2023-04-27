@@ -13,8 +13,12 @@ const SearchBar = () => {
     setName(event.target.value);
   };
 
+  const handleResultsPerPageChange = (event) => {
+    setResultsPerPage(parseInt(event.target.value));
+  };
+
   useEffect(() => {
-    setCurrentPage(1); // Resetear la página actual al cambiar la búsqueda
+    setCurrentPage(1); 
   }, [name]);
 
   const indexOfLastResult = currentPage * resultsPerPage;
@@ -37,7 +41,7 @@ const SearchBar = () => {
         onChange={handleChange}
       />
       {currentResults.map((paisName) => (
-        <div className="submit-button" key={paisName.name}>
+        <div className="submit-button" key={paisName.id}>
           <h3>
             <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link>
           </h3>
@@ -48,7 +52,7 @@ const SearchBar = () => {
         </div>
       ))}
       <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
           <button
             key={pageNumber}
             className={pageNumber === currentPage ? "active" : ""}

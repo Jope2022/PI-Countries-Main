@@ -1,20 +1,29 @@
 .navbar {
     background-color: blue;
     color: white;
+  
 }
 
 .navbar-links {
     display: flex;
+  
+
 }
 
 .navbar-links a {
     margin-right: 1rem;
     color: white;
     text-decoration: none;
+    
+   
 }
 
 .navbar-links a:hover {
     color: yellow;
+   
 }
 
-
+.button{
+    font-size: 10px;
+    float: left;
+   }

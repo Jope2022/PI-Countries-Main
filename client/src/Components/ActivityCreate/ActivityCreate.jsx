@@ -1,80 +1,79 @@
 import React from 'react';
 import { useForm } from './useForm';
-import NavBar from '../NavBar/NavBar';
 import { useSelector } from 'react-redux';
-import { AUTUM, SPRING, SUMMER, WINTER } from "../redux/action-types"
+import {AUTUMN, SPRING, SUMMER, WINTER } from "../redux/action-types"
 import './ActivityCreate.css';
-
+import { useHistory} from 'react-router-dom';
 
 const initialForm = {
     name: "",
-    duration: "",
     difficulty: "",
+    duration: "HH:mm:ss",
     season: "",
-    id: "",
+    countryId: "",
 }
 
 const validationsForm = ( form ) => {
     let errors = {};
     if (!form.name) {
         errors.name = "Debes completar el campo 'Nombre'."
-    } else if (!form.duration) {
-        errors.duration = "Debes completar el campo 'Duración'."
     }else if (!form.difficulty) {
         errors.difficulty = "Debes completar el campo 'Dificultad'."
+    }else if (!form.duration) {
+        errors.duration = "Debes completar el campo 'Duración'."
     }else if (!form.season) {
         errors.season = "Debes completar el campo 'Temporada'."
-    }else if (!form.id) {
-        errors.id = "Debes completar el campo 'Id'."
+    }else if (!form.countryId) {
+        errors.countyId = "Debes completar el campo 'Id'."
     }
     return errors;
 }
 
 const ActivityCreate = () => {
     const countries = useSelector( state => state.countries);
-    const {
+      const {
         form,
         errors,
         handleChange,
-        handleBlur,
         handleSubmit,
-       // handleDelete,
+        handleBlur,
         handleSelect
     } = useForm(initialForm, validationsForm)
-
-    return (
-        <div>
-            <div>
-                <NavBar />
-            </div>
-          <div>
-                <div>
+    const history = useHistory();
+    
+   return (
+        <div >
+           <div >
+                <div className='form span' >
                    <form className='form' onSubmit={handleSubmit}>
-                        <span> Create an Activity </span>
+                        <span>Crear Actividad </span>
                         <div >
-                            <label>Name: </label>
+                            <label>Nombre: </label>
                             <input
                                 type="text"
-                                placeholder="Activity name..."
+                                placeholder="Nombre de la actividad..."
                                 value={form.name}
                                 name="name"
                                 onChange={handleChange}
+                                onBlur={handleBlur}
                             />
                             {errors.name && <p>{errors.name}</p>}
                         </div>
                         <div>
-                            <label>Duration: </label>
+                            <label>Duración: </label>
                             <input
-                                type="text"
+                                step={1}
+                                type="time"
                                 value={form.duration}
                                 name="duration"
-                                placeholder="Set duration..."
+                                placeholder="Establecer duración..."
                                 onChange={handleChange}
+                                onBlur={handleBlur}
                             />
                             {errors.duration && <p>{errors.duration}</p>}
                         </div>
                         <div>
-                            <label>Difficulty: </label>
+                            <label>Difficultad: </label>
                             <input
                                 type="range"
                                 name="difficulty"
@@ -82,27 +81,32 @@ const ActivityCreate = () => {
                                 max="5"
                                 value={form.difficulty}
                                 onChange={(event) => handleChange(event)}
+                                onBlur={handleBlur}
                             />
                             {errors.difficulty && <p className="e"> {errors.difficulty}</p>}
                         </div>
                         <div >
                             <select
+                                name="season"
                                 value={form.season}
                                 onChange={(event) => handleChange(event)}
+                                onBlur={handleBlur}
                             >
-                                <option >Season: </option>
-                                <option  value={WINTER}>Winter</option>
-                                <option  value={SUMMER}>Summer</option>
-                                <option  value={AUTUM}>Autum</option>
-                                <option  value={SPRING}>Spring</option>
+                                <option >Temporadas: </option>
+                                <option  value={WINTER}>Invierno</option>
+                                <option  value={SUMMER}>Verano</option>
+                                <option  value={AUTUMN}>Otoño</option>
+                                <option  value={SPRING}>Primavera</option>
                             </select>
                             {errors.season && <p>{errors.season}</p>}
                         </div>
                         {errors.id && <p>{errors.id}</p>}
 
                         <div>
-                            <select onChange={(event) => handleSelect(event)}>
-                                <option>Countries </option>
+                            <select
+                                 onBlur={handleBlur} 
+                                 onChange={(event) => handleSelect(event)}>
+                                <option>Paises</option>
                                 {
                                     countries.map((v) => (
                                         <option  value={v.id}>{v.name}</option>))
@@ -110,10 +114,14 @@ const ActivityCreate = () => {
                             </select>
                         </div>
                       <div>
-                            <button  type="submit">Create Activity</button>
+                            <button  type="submit">Crear Actividad</button>
                         </div>
+                       
                     </form>
-                </div>
+                    <div className='back-button'>
+                    <button  onClick={() => history.goBack()}>Regresar</button>
+                    </div>
+                 </div>
             </div>
         </div>
     );

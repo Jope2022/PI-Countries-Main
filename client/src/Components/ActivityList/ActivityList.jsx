@@ -1,15 +1,27 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Activity from '../Activity/Activity';
-import NavBar from '../NavBar/NavBar';
+import { getActivities } from '../redux/actions';
+import { useEffect } from 'react';
+import "./ActivityList.css";
+import { useHistory} from 'react-router-dom';
 
 const ActivityList = () => {
-    const activities = useSelector( state => state.activities);
+    const dispatch = useDispatch();
+    const activityList = useSelector(state => state.activities)
+    const history = useHistory();
+    
+    
+    useEffect(() => {
+        console.log("accion 1")
+        dispatch(getActivities())
+    }, [dispatch]);
+ 
     return (
-        <div>
-            <NavBar/>
-            {
-                activities?.map( activity => {
+          <div className='formActivitiList'>
+          <h1>LISTADO DE ACTIVIDADES</h1>
+          <button onClick={() => history.goBack()}>Regresar</button>
+           {activityList?.map( activity => {
                     return (
                     <Activity
                         name={activity.name}

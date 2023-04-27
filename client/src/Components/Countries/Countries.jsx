@@ -9,7 +9,7 @@ import { useHistory} from 'react-router-dom';
 import "./Countries.css"
 
 const Countries = () => {
-     const countries = useSelector( state => state.countries );
+   // const countries = useSelector( state => state.countries );
     const activities = useSelector( state => state.activities );
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -49,6 +49,9 @@ const Countries = () => {
         dispatch(getActivities());
     }, [dispatch]);
     
+    console.log("currentPage: ", currentPage);
+    console.log("order: ", order);
+
     return (
            <div className="cardsContainer">
               <div >
