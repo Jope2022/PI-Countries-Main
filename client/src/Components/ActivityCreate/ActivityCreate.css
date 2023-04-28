@@ -1,17 +1,17 @@
   .form {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #d91212;
     border-radius: 5px;
-     margin-right: 100px;
   }
   
-  .form span {
+  form span {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    
   }
   
   form div {
@@ -51,7 +51,11 @@
     cursor: pointer;
     margin-top: 20px;
   }
-
+  
+  form button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
   form p {
     color: red;
     font-size: 14px;
@@ -67,15 +71,6 @@
     font-weight: bold;
   }
   
-  .back-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
+  .botonRegresar{
+    margin-left: 1590px;
   }
-  
-  .back-button button {
-    padding: 10px 10px;
-    font-size: 16px;
-  }
-  

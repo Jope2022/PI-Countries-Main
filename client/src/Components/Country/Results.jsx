@@ -11,8 +11,8 @@
            name={result.name}
            flag={result.flag}
           capital={result.capital}
-           continent={result.continent}
-           poblation={result.poblation}
+           continent={result.continents}
+           poblation={result.population}
          />
        ))}
      </div>

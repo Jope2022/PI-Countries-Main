@@ -21,10 +21,10 @@ const Country = () => {
                   <div>
                     <p>Id: {pais.id}</p>
                     <p>Capital: {pais.capital}</p>
-                    <p>Continents: {pais.continents}</p>
+                    <p>Continents: {pais.continent}</p>
                     <p>SubRegion: {pais.subregion}</p>
                     <p>Area: {pais.area}</p>
-                    <p>Population: {pais.poblation}</p>
+                    <p>Population: {pais.population}</p>
                   </div>
               </div>
               ))}

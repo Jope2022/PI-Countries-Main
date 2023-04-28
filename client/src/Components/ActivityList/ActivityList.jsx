@@ -24,6 +24,7 @@ const ActivityList = () => {
            {activityList?.map( activity => {
                     return (
                     <Activity
+                        countryId={activity.countryId}
                         name={activity.name}
                         duration={activity.duration}
                         season={activity.season}

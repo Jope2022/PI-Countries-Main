@@ -47,7 +47,7 @@ const SearchBar = () => {
           </h3>
           <img src={paisName.flag} alt="" />
           <div>
-            <h5>Continente: {paisName.continent}</h5>
+            <h5>{paisName.continent}</h5>
           </div>
         </div>
       ))}

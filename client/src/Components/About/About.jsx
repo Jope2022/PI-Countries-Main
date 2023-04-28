@@ -23,7 +23,7 @@ export default function About() {
                     <h3 className="p">"Soy Argentino 45 años Estudiante <br />
                         de Henry y en esta app utilice todo <br /> lo aprendido
                         en el Boodcamp."</h3>
-                        <button onClick={() => history.goBack()}>Regresar</button>
+                    <button onClick={() => history.goBack()}>Regresar</button>
                 
                       
                     <div className="containerImagenes1 .grupo1">

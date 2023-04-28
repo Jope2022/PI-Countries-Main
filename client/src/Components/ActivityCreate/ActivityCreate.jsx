@@ -40,13 +40,13 @@ const ActivityCreate = () => {
         handleSelect
     } = useForm(initialForm, validationsForm)
     const history = useHistory();
-    
+    console.log("accion 1")
    return (
         <div >
            <div >
                 <div className='form span' >
                    <form className='form' onSubmit={handleSubmit}>
-                        <span>Crear Actividad </span>
+                        <span>Registra una Actividad </span>
                         <div >
                             <label>Nombre: </label>
                             <input
@@ -73,7 +73,7 @@ const ActivityCreate = () => {
                             {errors.duration && <p>{errors.duration}</p>}
                         </div>
                         <div>
-                            <label>Difficultad: </label>
+                            <label>Dificultad: </label>
                             <input
                                 type="range"
                                 name="difficulty"
@@ -92,7 +92,7 @@ const ActivityCreate = () => {
                                 onChange={(event) => handleChange(event)}
                                 onBlur={handleBlur}
                             >
-                                <option >Temporadas: </option>
+                                <option >Temporada: </option>
                                 <option  value={WINTER}>Invierno</option>
                                 <option  value={SUMMER}>Verano</option>
                                 <option  value={AUTUMN}>Otoño</option>
@@ -104,12 +104,13 @@ const ActivityCreate = () => {
 
                         <div>
                             <select
+                                 multiple
                                  onBlur={handleBlur} 
                                  onChange={(event) => handleSelect(event)}>
                                 <option>Paises</option>
                                 {
                                     countries.map((v) => (
-                                        <option  value={v.id}>{v.name}</option>))
+                                        <option  value={v.countryId}>{v.name}</option>))
                                 }
                             </select>
                         </div>
@@ -118,7 +119,7 @@ const ActivityCreate = () => {
                         </div>
                        
                     </form>
-                    <div className='back-button'>
+                    <div className='botonRegresar'>
                     <button  onClick={() => history.goBack()}>Regresar</button>
                     </div>
                  </div>

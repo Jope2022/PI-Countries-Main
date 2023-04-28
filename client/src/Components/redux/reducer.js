@@ -1,6 +1,6 @@
 import { FILTER_BY_ACTIVITIES, FILTER_BY_CONTINENT, GET_ACTIVITIES, GET_COUNTRIES, GET_DETAIL, 
     ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITIES, SEARCH_COUNTRIES, 
-    SET_CURRENT_PAGE } from  "./action-types";
+    SET_CURRENT_PAGE, MAJOR_POPULATION, MINOR_POPULATION } from  "./action-types";
 
 const initialState = {
     loading : true,
@@ -11,7 +11,6 @@ const initialState = {
     activities : [],
     currentPage: 1,
     countriesPerPage: 10
-
 };
 
 export default function rootReducer( state = initialState, action) {
@@ -56,17 +55,19 @@ export default function rootReducer( state = initialState, action) {
             }
 
         case FILTER_BY_ACTIVITIES:
-            const filterByActivities = state.countries.filter (country => country.activities.find(activity => activity.name === action.payload));
+            console.log("segunada accion")
+            const filterByActivities = state.countries.filter (country => country.activities.some(
+                activity => activity.name === action.payload));
             if (action.payload === 'ALL') {
                 return {
                     ...state,
-                    fitered: state.countries
+                    countries: state.countries
                 }
             }
             else {
                 return {
                     ...state,
-                    filtered: filterByActivities
+                    countries: filterByActivities
                 }
             }
 
@@ -84,20 +85,19 @@ export default function rootReducer( state = initialState, action) {
             }
         
             case ORDER_BY_POPULATION:
-                    const sortedCountries = [...state.countries].slice().sort((a, b) => {
-                        if (action.payload === "ASCENDANT") {
-                            return a.poblation - b.poblation;
-                        } else {
-                            return b.poblation - a.poblation;
-                        }
+                    const sortedCountries = [...state.countries].sort((a, b) => {
+                        if (action.payload === MAJOR_POPULATION) {
+                            return b.population - a.population;
+                         } else {
+                             return a.population - b.population;
+                         }
                     });
                     return {
                         ...state,
-                        countries: sortedCountries
+                        countries: [...sortedCountries]
                     }
                 default: 
                     return state;
-                
-}
+     }
 }
 

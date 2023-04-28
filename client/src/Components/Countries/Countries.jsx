@@ -9,7 +9,7 @@ import { useHistory} from 'react-router-dom';
 import "./Countries.css"
 
 const Countries = () => {
-   // const countries = useSelector( state => state.countries );
+    const countries = useSelector( state => state.countries );
     const activities = useSelector( state => state.activities );
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -45,6 +45,7 @@ const Countries = () => {
       }
     
     useEffect(() => {
+        console.log(countries)
         dispatch(getCountries());
         dispatch(getActivities());
     }, [dispatch]);
@@ -76,11 +77,11 @@ const Countries = () => {
                     <option value="continent">Continentes</option>
                     <option value={ALL}>Todos</option>
                     <option value={ALL_OF_AFRICA}>Africa</option>
-                    <option value={ALL_OF_ANTARCTICA}>Antarctica</option>
-                    <option value={ALL_OF_N_AMERICA}>North America</option>
-                    <option value={ALL_OF_S_AMERICA}>South America</option>
+                    <option value={ALL_OF_ANTARCTICA}>Antártida</option>
+                    <option value={ALL_OF_N_AMERICA}>America Norte</option>
+                    <option value={ALL_OF_S_AMERICA}>America Sur</option>
                     <option value={ALL_OF_ASIA}>Asia</option>
-                    <option value={ALL_OF_EUROPE}>Europe</option>
+                    <option value={ALL_OF_EUROPE}>Europa</option>
                     <option value={ALL_OF_OCEANIA}>Oceania</option>
                           </select>
                    <button onClick={() => history.goBack()}>Regresar</button>
