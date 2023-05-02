@@ -39,6 +39,7 @@ const ActivityCreate = () => {
         handleBlur,
         handleSelect
     } = useForm(initialForm, validationsForm)
+
     const history = useHistory();
     console.log("accion 1")
    return (
@@ -110,7 +111,7 @@ const ActivityCreate = () => {
                                 <option>Paises</option>
                                 {
                                     countries.map((v) => (
-                                        <option  value={v.countryId}>{v.name}</option>))
+                                        <option  value={v.id}>{v.name}</option>))
                                 }
                             </select>
                         </div>
@@ -119,7 +120,7 @@ const ActivityCreate = () => {
                         </div>
                        
                     </form>
-                    <div className='botonRegresar'>
+                    <div className='back-button'>
                     <button  onClick={() => history.goBack()}>Regresar</button>
                     </div>
                  </div>

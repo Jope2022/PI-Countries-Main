@@ -1,6 +1,6 @@
 import { FILTER_BY_ACTIVITIES, FILTER_BY_CONTINENT, GET_ACTIVITIES, GET_COUNTRIES, GET_DETAIL, 
     ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITIES, SEARCH_COUNTRIES, 
-    SET_CURRENT_PAGE, MAJOR_POPULATION, MINOR_POPULATION } from  "./action-types";
+    SET_CURRENT_PAGE, MAJOR_POPULATION } from  "./action-types";
 
 const initialState = {
     loading : true,
@@ -37,7 +37,11 @@ export default function rootReducer( state = initialState, action) {
         case GET_ACTIVITIES:
             return {
                 ...state,
-                activities: action.payload
+                activities: action.payload.filter((obj, index, self) => {
+                    return index === self.findIndex((t) => (
+                      t.name === obj.name
+                    ));
+                  })
             }
 
         case GET_DETAIL:
@@ -57,7 +61,8 @@ export default function rootReducer( state = initialState, action) {
         case FILTER_BY_ACTIVITIES:
             console.log("segunada accion")
             const filterByActivities = state.countries.filter (country => country.activities.some(
-                activity => activity.name === action.payload));
+                activity => activity.name === action.payload))
+                .map(country => ({...country, name: country.countryId}));
             if (action.payload === 'ALL') {
                 return {
                     ...state,

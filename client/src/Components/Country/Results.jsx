@@ -10,7 +10,7 @@
            key={result.name}
            name={result.name}
            flag={result.flag}
-          capital={result.capital}
+           capital={result.capital}
            continent={result.continents}
            poblation={result.population}
          />

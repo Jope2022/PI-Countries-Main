@@ -7,7 +7,6 @@ import React from "../../Img/React.jpg"
 import Post from "../../Img/Post.png"
 import Java from "../../Img/Java.png"
 import { useHistory } from 'react-router-dom';
-
 import "./About.css"
 
 export default function About() {

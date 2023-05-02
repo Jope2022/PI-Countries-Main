@@ -4,10 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CountryDetail from '../src/Components/CountryDetail/countryDetail';
 import ActivityCreate from './Components/ActivityCreate/ActivityCreate';
 import Country from "./Components/Country/Country";
-import ActivityList from './Components/ActivityList/ActivityList';
 import Countries from './Components/Countries/Countries';
 import About from './Components/About/About';
-
 
 function App() {
   return (
@@ -19,7 +17,6 @@ function App() {
         <Route exact path="/countries/:idPais" component={CountryDetail}/> 
         <Route exact path="/countries?name=" component={Countries}/> 
         <Route path="/create-activity" component={ActivityCreate}/>  
-        <Route path="/activityList" component={ActivityList}/>  
         <Route path="/about" component={About}/>  
       </Switch>
     </Router>

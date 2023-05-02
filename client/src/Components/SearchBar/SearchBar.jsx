@@ -13,10 +13,13 @@ const SearchBar = () => {
     setName(event.target.value);
   };
 
-  const handleResultsPerPageChange = (event) => {
-    setResultsPerPage(parseInt(event.target.value));
+   const handleResultsPerPageChange = (event) => {
+     const value = parseInt(event.target.value);
+     if (!isNaN(value)) {
+       setResultsPerPage(value);
+    }
   };
-
+  
   useEffect(() => {
     setCurrentPage(1); 
   }, [name]);
@@ -52,14 +55,14 @@ const SearchBar = () => {
         </div>
       ))}
       <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+        {Array.from({length: totalPages}, (_, i) => i + 1).map((pageNumber) => (
           <button
             key={pageNumber}
             className={pageNumber === currentPage ? "active" : ""}
             onClick={() => paginate(pageNumber)}
           >
-            {pageNumber}
-          </button>
+          {pageNumber}
+        </button>
         ))}
       </div>
     </div>

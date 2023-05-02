@@ -7,6 +7,8 @@ import Countries from '../Countries/Countries';
 const Country = () => {
     const dispatch = useDispatch();
     const paises = useSelector(state => state.countries)
+
+    
     useEffect(() => {
         dispatch(getCountries())
     }, [dispatch]);

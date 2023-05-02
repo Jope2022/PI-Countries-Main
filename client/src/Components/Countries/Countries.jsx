@@ -45,7 +45,6 @@ const Countries = () => {
       }
     
     useEffect(() => {
-        console.log(countries)
         dispatch(getCountries());
         dispatch(getActivities());
     }, [dispatch]);

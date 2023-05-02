@@ -7,9 +7,9 @@ import {postActivities} from "../redux/actions"
 export const useForm = ( initialForm, validateForm ) => {
     const [form, setForm] = useState(initialForm);
     const [errors, setErrors] = useState({});
-   // const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
+    const [Paises, setPaises] = useState([]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -30,7 +30,10 @@ export const useForm = ( initialForm, validateForm ) => {
         setErrors(validateForm(form));
 
         if (Object.keys(errors).length === 0) {
-            dispatch(postActivities(form));
+            Paises.forEach(pais=>{
+                dispatch(postActivities({...form, countryId: pais}));
+    
+            })
             alert('Activity created');
             setForm(initialForm);
             history.push("/home");
@@ -39,21 +42,17 @@ export const useForm = ( initialForm, validateForm ) => {
         }
     };
 
-    // const handleDelete = (idCountry) => {
-    //     let pais =  form.countryId.filter( countryId => countryId !== idCountry)
-    //     let paisName = pais.join()
-    //     setForm({
-    //         ...form,
-    //         countryId: paisName
-    //             });
-    // };
-
-    const handleSelect = (event) => {
+      const handleSelect = (event) => {
         const { value } = event.target;
+        console.log(value)
         setForm({
             ...form,
             countryId: value
         })
+        setPaises([
+            ...Paises,
+            value
+        ])
     }
 
     return {
