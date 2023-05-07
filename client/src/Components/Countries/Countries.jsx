@@ -5,7 +5,6 @@ import { filterByActivity, filterByContinent, getActivities,getCountries, orderB
 import { ALL, ALL_OF_AFRICA, ALL_OF_ANTARCTICA, ALL_OF_ASIA, ALL_OF_EUROPE, ALL_OF_N_AMERICA, 
          ALL_OF_OCEANIA, ALL_OF_S_AMERICA, ASCENDANT, DESCENDANT, MAJOR_POPULATION,
           MINOR_POPULATION } from '../redux/action-types';
-import { useHistory} from 'react-router-dom';
 import "./Countries.css"
 
 const Countries = () => {
@@ -14,12 +13,10 @@ const Countries = () => {
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);
     const [ order, setOrder ] = useState("");
-    const history = useHistory();
-  
-   const reloadButton = (event) => {
-        event.preventDefault();
-        dispatch(getCountries());
-    }
+    //const [activityFilter, setActivityFilter] = useState("");
+    //const [continentFilter, setContinentFilter] = useState("");
+
+
     
     const handleFilterContinent = (event) => {
         dispatch(filterByContinent(event.target.value));
@@ -54,27 +51,29 @@ const Countries = () => {
 
     return (
            <div className="cardsContainer">
-              <div >
-            <button id='b1' onClick={(event) => reloadButton(event)}>Recargar</button>
-                <select onChange={(event) => handleSort(event)}>
-                    <option>Filtrar por orden alfabético</option>
+              <div>
+                <select className='filterContainer input' onChange={(event) => handleSort(event)}>
+                    <option  >Ordenar Alfabeticamente:</option>
                     <option value={ASCENDANT}> A-Z </option>
                     <option value={DESCENDANT}> Z-A </option>
                 </select>
-                <select onChange={(event) => handleSort2(event)}>
-                    <option>Filtrar por Población</option>
+                <select className='filterContainer input' onChange={(event) => handleSort2(event)}>
+                    <option>Ordenar por Población:</option>
                     <option value={MAJOR_POPULATION}>Mayor Poblacion</option>
                     <option value={MINOR_POPULATION}>Menor Poblacion</option>
                 </select>
-                <select onChange={(event) => handleFilterActivity(event)}>
-                    <option value="todos"> Actividades </option>
+                <select className='filterContainer input'
+                 onChange={(event) => handleFilterActivity(event)}>
+                    <option value="ALL"> Filtrar por Actividades: </option>
                     {
                         activities.map((activity) => (<option value={activity.name}>{activity.name}</option>))
                     }
+                    console.log(activitites)
+                    console.log(activity)
+                    
                 </select>
-                <select onChange={(event) => handleFilterContinent(event)}>
-                    <option value="continent">Continentes</option>
-                    <option value={ALL}>Todos</option>
+                <select className='filterContainer input' onChange={(event) => handleFilterContinent(event)}>
+                    <option value="continent">Filtrar por Continente:</option>
                     <option value={ALL_OF_AFRICA}>Africa</option>
                     <option value={ALL_OF_ANTARCTICA}>Antártida</option>
                     <option value={ALL_OF_N_AMERICA}>America Norte</option>
@@ -82,10 +81,10 @@ const Countries = () => {
                     <option value={ALL_OF_ASIA}>Asia</option>
                     <option value={ALL_OF_EUROPE}>Europa</option>
                     <option value={ALL_OF_OCEANIA}>Oceania</option>
-                          </select>
-                   <button onClick={() => history.goBack()}>Regresar</button>
-            </div>
+                </select>
+           </div>
       </div>
+    
     
     );
 };

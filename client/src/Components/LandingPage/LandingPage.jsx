@@ -12,7 +12,7 @@ const LandingPage = () => {
     }
    return (
         <div className="container">
-            <h1 className="title">Bienvenido a un espacio dedicado a todos los paises del mundo...</h1>
+            <h2 className="title">Bienvenido a un espacio dedicado a todos los paises del mundo...</h2>
            
             <h2>. Buscar Países</h2>
             <h2>. Ordenar Países por Población y Alfabeto</h2>

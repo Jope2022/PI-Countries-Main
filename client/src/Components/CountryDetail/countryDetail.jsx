@@ -1,20 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import {getDetail} from "../redux/actions"
+import {getDetail, getActivities} from "../redux/actions"
 import { useParams } from 'react-router-dom';
 import "./countryDetail.css"
 import { useHistory } from 'react-router-dom';
+import ActivityList from "../ActivityList/ActivityList.jsx";
 
 const CountryDetail = () => {
   const dispatch = useDispatch();
   const {idPais} = useParams();
   const pais = useSelector(state => state.details);
   const history = useHistory();
+  const actividades = useSelector(state => state.activities);
 
   useEffect(() =>{ 
   dispatch(getDetail(idPais))
+  dispatch(getActivities())
      },[dispatch, idPais]);
-           
+
+     const activitiesForCountry = actividades.filter(act => act.countryId === pais.id);
+     console.log(activitiesForCountry)
+
+     console.log(activitiesForCountry)           
+     console.log(pais.activities)
   return (
     <div>
          <div className="submit-button1" key={pais.name}>
@@ -26,8 +34,9 @@ const CountryDetail = () => {
           <p>SubRegion: {pais.subregion}</p>
           <p>Area: {pais.area}</p>
           <p>Poblation: {pais.population}</p>
+          {pais.activities.length > 0 && <ActivityList activities={pais.activities} />}
           <button onClick={() => history.goBack()}>Regresar</button>
-     </div>
+      </div>
     </div>
   )
  }

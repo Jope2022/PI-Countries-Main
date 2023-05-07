@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/countries" component={Country}/>
         <Route exact path="/countries/:idPais" component={CountryDetail}/> 
         <Route exact path="/countries?name=" component={Countries}/> 
-        <Route path="/create-activity" component={ActivityCreate}/>  
+        <Route path="/activitycreate" component={ActivityCreate}/>  
         <Route path="/about" component={About}/>  
       </Switch>
     </Router>

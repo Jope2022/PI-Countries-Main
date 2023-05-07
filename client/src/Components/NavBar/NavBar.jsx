@@ -1,34 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBar from '../SearchBar/SearchBar';
 import{getCountries} from "../redux/actions";
 import { useDispatch } from 'react-redux';
 import "./NavBar.css";
+//import CreateActivity from "../components/CreateActivity";
 
 const NavBar = () => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
+      console.log("Ingresar crear una actividad")
         dispatch(getCountries());
  }
 
 return (
-        <nav className="navbar">
-            <div className="navbar-links">
-              <div>
-               <Link to="/create-activity">
-               <button className="button" onClick={handleClick}>Crear actividad</button>
+        <nav>
+          <div >
+              <div className="navbar-links">
+               <Link to="/activitycreate">
+                  <button className="button" onClick={handleClick}>Crear un actividad turstica</button>
                </Link>
-              <Link to='/countries' className="link">  
-                     <button className="button" onClick={handleClick}>Filtrar/Ordenar</button>
-               </Link> 
                <Link to="/about" className="link">
-               <button className="button" onClick={handleClick}>Creador</button>
+                  <button className="button" onClick={handleClick}>Acerca de Mi</button>
                </Link> 
-               </div>
-            </div>
-                <SearchBar />
-            </nav>
+                </div>
+           </div>
+         </nav>
     );
 };
 

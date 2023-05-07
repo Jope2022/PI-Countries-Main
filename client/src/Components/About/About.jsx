@@ -21,7 +21,8 @@ export default function About() {
                     <h3 className="h3"> FullStrack Developer</h3>
                     <h3 className="p">"Soy Argentino 45 años Estudiante <br />
                         de Henry y en esta app utilice todo <br /> lo aprendido
-                        en el Boodcamp."</h3>
+                        en el Boodcamp." </h3>
+                    <h3>Titulo "Programador Superior"</h3>
                     <button onClick={() => history.goBack()}>Regresar</button>
                 
                       

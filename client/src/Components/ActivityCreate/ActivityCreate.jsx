@@ -1,9 +1,10 @@
 import React from 'react';
-import { useForm } from './useForm';
 import { useSelector } from 'react-redux';
 import {AUTUMN, SPRING, SUMMER, WINTER } from "../redux/action-types"
+import { useForm } from './useForm';
 import './ActivityCreate.css';
 import { useHistory} from 'react-router-dom';
+import ActivityTag from '../ActivityTag/ActivityTag';
 
 const initialForm = {
     name: "",
@@ -17,6 +18,8 @@ const validationsForm = ( form ) => {
     let errors = {};
     if (!form.name) {
         errors.name = "Debes completar el campo 'Nombre'."
+    }else if  (!/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/.test(form.name))  {
+            errors.name = "El campo 'Nombre' solo puede contener letras.";
     }else if (!form.difficulty) {
         errors.difficulty = "Debes completar el campo 'Dificultad'."
     }else if (!form.duration) {
@@ -37,17 +40,19 @@ const ActivityCreate = () => {
         handleChange,
         handleSubmit,
         handleBlur,
-        handleSelect
+        handleSelect,
+        Paises,
+        Quitar
     } = useForm(initialForm, validationsForm)
 
     const history = useHistory();
-    console.log("accion 1")
+
    return (
-        <div >
-           <div >
-                <div className='form span' >
-                   <form className='form' onSubmit={handleSubmit}>
-                        <span>Registra una Actividad </span>
+        <div className='containerActivityCreate'>
+            <div  className='form' >
+                <div >
+                   <form  onSubmit={handleSubmit}>
+                        <span className='span'>Registra una Actividad Turística </span>
                         <div >
                             <label>Nombre: </label>
                             <input
@@ -87,13 +92,13 @@ const ActivityCreate = () => {
                             {errors.difficulty && <p className="e"> {errors.difficulty}</p>}
                         </div>
                         <div >
+                           <label>Temporadas: </label>
                             <select
                                 name="season"
                                 value={form.season}
                                 onChange={(event) => handleChange(event)}
                                 onBlur={handleBlur}
                             >
-                                <option >Temporada: </option>
                                 <option  value={WINTER}>Invierno</option>
                                 <option  value={SUMMER}>Verano</option>
                                 <option  value={AUTUMN}>Otoño</option>
@@ -102,26 +107,31 @@ const ActivityCreate = () => {
                             {errors.season && <p>{errors.season}</p>}
                         </div>
                         {errors.id && <p>{errors.id}</p>}
-
                         <div>
+                            <label>Paises: </label>
                             <select
                                  multiple
                                  onBlur={handleBlur} 
                                  onChange={(event) => handleSelect(event)}>
-                                <option>Paises</option>
-                                {
+                               {
                                     countries.map((v) => (
                                         <option  value={v.id}>{v.name}</option>))
                                 }
                             </select>
                         </div>
-                      <div>
+                    <div>
                             <button  type="submit">Crear Actividad</button>
                         </div>
                        
                     </form>
-                    <div className='back-button'>
-                    <button  onClick={() => history.goBack()}>Regresar</button>
+                    <div> 
+                                 {Paises.map(pais =>{ 
+                                    return( <div>{pais} <button onClick={()=>{Quitar(pais)} }>X</button>  </div> )
+                                 })}
+                                 </div>
+
+                    <div className='botonRegresar'>
+                    <button className='botomRegresar' onClick={() => history.goBack()}>Regresar</button>
                     </div>
                  </div>
             </div>

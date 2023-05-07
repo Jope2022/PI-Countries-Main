@@ -7,8 +7,8 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom';
 import store from "./Components/redux/store";
 
 
-ReactDOM.render(
-  <Provider  store={store} >
+ReactDOM.render( // entradad principal de la aplicacion React renderiza App
+  <Provider store={store} >
     <BrowserRouter>
     <App />
     </BrowserRouter>

@@ -6,7 +6,7 @@ const initialState = {
     loading : true,
     countries : [],
     quest : [],
-    details : {},
+    details : {activities:[]},
     filtered : [],
     activities : [],
     currentPage: 1,
@@ -20,7 +20,8 @@ export default function rootReducer( state = initialState, action) {
             return {
                 ...state,
                 loading : false,
-                countries : action.payload
+                countries : action.payload,
+                filtered: action.payload
             }
         case SET_CURRENT_PAGE:
             return {
@@ -55,24 +56,24 @@ export default function rootReducer( state = initialState, action) {
             state.countries.filter (country => country.continent === action.payload)
             return {
                 ...state,
-                countries: filterByContinent
-            }
+                filtered: filterByContinent
+
+            } 
 
         case FILTER_BY_ACTIVITIES:
-            console.log("segunada accion")
-            const filterByActivities = state.countries.filter (country => country.activities.some(
+             const filterByActivities = state.countries.filter (filtered => filtered.activities.some(
                 activity => activity.name === action.payload))
-                .map(country => ({...country, name: country.countryId}));
+                .map(filtered => ({...filtered, name: filtered.name}));
             if (action.payload === 'ALL') {
                 return {
                     ...state,
-                    countries: state.countries
+                    filtered: state.countries
                 }
             }
             else {
                 return {
                     ...state,
-                    countries: filterByActivities
+                    filtered: filterByActivities
                 }
             }
 
@@ -82,7 +83,7 @@ export default function rootReducer( state = initialState, action) {
         case ORDER_BY_NAME:
              return {
                 ...state,
-                countries: action.payload === "ASCENDANT" ? [...state.countries].sort ((a, b) => {
+                filtered: action.payload === "ASCENDANT" ? [...state.countries].sort ((a, b) => {
                     return a.name.localeCompare(b.name);
                  }) : [...state.countries].sort((a, b) => {
                     return b.name.localeCompare(a.name);
@@ -99,7 +100,7 @@ export default function rootReducer( state = initialState, action) {
                     });
                     return {
                         ...state,
-                        countries: [...sortedCountries]
+                        filtered: [...sortedCountries]
                     }
                 default: 
                     return state;

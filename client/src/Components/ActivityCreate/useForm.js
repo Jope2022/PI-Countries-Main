@@ -11,9 +11,14 @@ export const useForm = ( initialForm, validateForm ) => {
     const history = useHistory();
     const [Paises, setPaises] = useState([]);
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+    const Quitar = (id) =>{
+        setPaises(Paises.filter(x => x !== id))
+      //      setForm(form.filter(x => x.countryId !== id))     
+    }
 
+    const handleChange = (event) => {
+        console.log(Paises)    //Actualiza el estado from cambios formulario
+        const { name, value } = event.target;
         setForm({
             ...form,
             [name] : value,
@@ -21,30 +26,31 @@ export const useForm = ( initialForm, validateForm ) => {
     };
 
     const handleBlur = (event) => {
+        console.log(event)    // se encarga actualizar el estado from y error
         handleChange(event);
         setErrors(validateForm(form));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event) => {    // envia los datos del formulario
+        console.log(event)
         event.preventDefault();
         setErrors(validateForm(form));
 
-        if (Object.keys(errors).length === 0) {
-            Paises.forEach(pais=>{
-                dispatch(postActivities({...form, countryId: pais}));
-    
-            })
-            alert('Activity created');
+        if (form.name && form.difficulty && form.duration && form.season && form.countryId && Object.keys(errors).length === 0) {
+
+           dispatch(postActivities({...form, countryId: Paises}));
+
+            alert('Actividad creada');
             setForm(initialForm);
             history.push("/home");
         } else {
-            return;
+            alert("Todos los campos deben ser requeridos");
         }
     };
 
-      const handleSelect = (event) => {
+      const handleSelect = (event) => {  //actualizar el estado from y paises
+        console.log(event)
         const { value } = event.target;
-        console.log(value)
         setForm({
             ...form,
             countryId: value
@@ -61,6 +67,8 @@ export const useForm = ( initialForm, validateForm ) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        handleSelect
+        handleSelect,
+        Paises,
+        Quitar        
     }
 }
