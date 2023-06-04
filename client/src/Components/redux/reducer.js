@@ -57,7 +57,6 @@ export default function rootReducer( state = initialState, action) {
             return {
                 ...state,
                 filtered: filterByContinent
-
             } 
 
         case FILTER_BY_ACTIVITIES:

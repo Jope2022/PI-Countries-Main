@@ -2,17 +2,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
+  align-items: center;
+  height: 100vh;
 }
 
 .submit-button {
   flex: 0 0 calc(18.33% - 30px);
-  margin: 0 10px 10px;
+  margin: 10px;
   text-align: center;
   vertical-align: top;
   background-color: #8f7dec;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
+  width: 350px;
+  height: 380px;
 }
 
 .submit-button h3 {

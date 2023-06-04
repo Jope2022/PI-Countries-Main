@@ -13,11 +13,7 @@ const Countries = () => {
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);
     const [ order, setOrder ] = useState("");
-    //const [activityFilter, setActivityFilter] = useState("");
-    //const [continentFilter, setContinentFilter] = useState("");
-
-
-    
+        
     const handleFilterContinent = (event) => {
         dispatch(filterByContinent(event.target.value));
         setCurrentPage(1);
@@ -53,7 +49,7 @@ const Countries = () => {
            <div className="cardsContainer">
               <div>
                 <select className='filterContainer input' onChange={(event) => handleSort(event)}>
-                    <option  >Ordenar Alfabeticamente:</option>
+                    <option>Ordenar Alfabeticamente:</option>
                     <option value={ASCENDANT}> A-Z </option>
                     <option value={DESCENDANT}> Z-A </option>
                 </select>
@@ -68,12 +64,9 @@ const Countries = () => {
                     {
                         activities.map((activity) => (<option value={activity.name}>{activity.name}</option>))
                     }
-                    console.log(activitites)
-                    console.log(activity)
-                    
                 </select>
                 <select className='filterContainer input' onChange={(event) => handleFilterContinent(event)}>
-                    <option value="continent">Filtrar por Continente:</option>
+                    <option value="ALL">Filtrar por Continente:</option>
                     <option value={ALL_OF_AFRICA}>Africa</option>
                     <option value={ALL_OF_ANTARCTICA}>Antártida</option>
                     <option value={ALL_OF_N_AMERICA}>America Norte</option>

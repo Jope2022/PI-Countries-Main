@@ -10,17 +10,20 @@
   color: #4909e9;
 	border: #fff;
   z-index: -2;
+
 }
 
 .form {
   width: 380px;
+  height: 758px;
   padding: 70px;
-  background-color: #c8c775;
+  background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   font-family: Arial, sans-serif;
   line-height: 2.5;
   z-index: 1;
+  margin-top: 50px;
   
 }
 
@@ -103,4 +106,25 @@
   margin-top: 40px;
   text-align: center;
   margin-left: 150px;
+}
+.imagenTuristica {
+  float: left;
+  width: 600px;
+  height: 900px;
+  padding: 50px;
+  image-rendering: auto;
+  margin-left: -700px;
+}
+.imagenTuristica1 {
+  float: right;
+  width: 600px;
+  height: 900px;
+  padding: 50px;
+  image-rendering: auto;
+  margin-right: -700px;
+  
+}
+.actividadTuristica {
+  margin-left: 800px; /* Ajusta el valor según el espacio que deseas dejar entre la imagen y la actividad turística */
+
 }

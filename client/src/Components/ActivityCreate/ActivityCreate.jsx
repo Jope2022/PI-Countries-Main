@@ -5,6 +5,8 @@ import { useForm } from './useForm';
 import './ActivityCreate.css';
 import { useHistory} from 'react-router-dom';
 import ActivityTag from '../ActivityTag/ActivityTag';
+import imagenTuristica from "../../Img/imagenTuristica.jpg"
+import imagenTuristica1 from "../../Img/imagenTuristica1.jpg"
 
 const initialForm = {
     name: "",
@@ -48,10 +50,15 @@ const ActivityCreate = () => {
     const history = useHistory();
 
    return (
+    
         <div className='containerActivityCreate'>
+         <div >
+             <img className='imagenTuristica' src={imagenTuristica} alt="jose" />
+             <img className='imagenTuristica1' src={imagenTuristica1} alt="jose1" />
+         
             <div  className='form' >
                 <div >
-                   <form  onSubmit={handleSubmit}>
+                  <form  onSubmit={handleSubmit}>
                         <span className='span'>Registra una Actividad Turística </span>
                         <div >
                             <label>Nombre: </label>
@@ -129,13 +136,17 @@ const ActivityCreate = () => {
                                     return( <div>{pais} <button onClick={()=>{Quitar(pais)} }>X</button>  </div> )
                                  })}
                                  </div>
-
+                                <div className='fotoTurista'>
+                                {/* <img  src={turistico} alt="turistico" /> */}
+                                </div>
                     <div className='botonRegresar'>
                     <button className='botomRegresar' onClick={() => history.goBack()}>Regresar</button>
                     </div>
                  </div>
             </div>
-        </div>
+      
+            </div>       
+        </div>        
     );
 };
 

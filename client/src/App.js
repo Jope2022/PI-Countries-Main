@@ -7,6 +7,7 @@ import Country from "./Components/Country/Country";
 import Countries from './Components/Countries/Countries';
 import About from './Components/About/About';
 
+
 function App() {
   return (
     <Router >
@@ -20,7 +21,7 @@ function App() {
         <Route path="/about" component={About}/>  
       </Switch>
     </Router>
-  );
+      );
 }
 
 export default App;

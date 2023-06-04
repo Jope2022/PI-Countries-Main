@@ -3,14 +3,23 @@ import './SearchBar.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Countries from '../Countries/Countries';
-import lupa from "../../Img/Lupa.jpg";
-import NavBar from '../NavBar/NavBar';
+
+import{getCountries} from "../redux/actions";
+import { useDispatch } from 'react-redux';
 
 const SearchBar = () => {
   const paisesNombre = useSelector((state) => state.filtered);
   const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [resultsPerPage, setResultsPerPage] = useState(10);
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    console.log("Ingresar crear una actividad")
+      dispatch(getCountries());
+}
+
 
   const handleChange = (event) => {
     setName(event.target.value);
@@ -39,45 +48,54 @@ const SearchBar = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-  
-    <div className='containerSearchBar' >
-      <div >
-      <NavBar/> 
-        <input
-        className="inputSearchBar"
-        type="search"
-        value={name}
-        placeholder="Buscar un Pais......"
-        onChange={handleChange}
-      />
-      <img className='imagenLupa' src={lupa} alt="Lupa" />
-        <Countries/>
-      {currentResults.map((paisName) => (
-        <div className="submit-button" key={paisName.id}>
-          <h3>
-            <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link>
-          </h3>
-          <img src={paisName.flag} alt="" />
-          <div>
-          <h5>Población: {paisName.population}</h5>
-            <h5>Continente: {paisName.continent}</h5>
-          </div>
+    <div className='containerSearchBar'>
+      <div>
+        <div className='containerColumna' >
+          <input
+            className="inputSearchBar"
+            type="search"
+            value={name}
+            placeholder="Buscar un Pais......"
+            onChange={handleChange}
+          />
+          <Link to="/activitycreate">
+            <button className="button" onClick={handleClick}>Crear una actividad turística</button>
+          </Link>
+          <Link to="/about">
+            <button className="button" onClick={handleClick}>Acerca de Mi</button>
+          </Link>
         </div>
-      ))}
-      <div className="pagination">
-        {Array.from({length: totalPages}, (_, i) => i + 1).map((pageNumber) => (
-          <button
-            key={pageNumber}
-            className={pageNumber === currentPage ? "active" : ""}
-            onClick={() => paginate(pageNumber)}
-          >
-          {pageNumber}
-        </button>
+     
+        <Countries />
+        {currentResults.map((paisName) => (
+          <div className="submit-button" key={paisName.id}>
+            <h3>
+              <Link to={`/countries/${paisName.id}`}>{paisName.name}</Link>
+            </h3>
+            <div className='imgenSearchBar' >
+            <img src={paisName.flag} alt="" />
+            </div>
+            <div>
+              <h5>Población: {paisName.population}</h5>
+              <h5>Continente: {paisName.continent}</h5>
+            </div>
+          </div>
         ))}
+        <div className="pagination">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+            <button
+              key={pageNumber}
+              className={pageNumber === currentPage ? "active" : ""}
+              onClick={() => paginate(pageNumber)}
+            >
+              {pageNumber}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
-    </div>
   );
-};
+ };  
+
 
 export default SearchBar;

@@ -1,34 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import{getCountries} from "../redux/actions";
-import { useDispatch } from 'react-redux';
-import "./NavBar.css";
-//import CreateActivity from "../components/CreateActivity";
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import{getCountries} from "../redux/actions";
+// import { useDispatch } from 'react-redux';
+// import SearchBar from '../SearchBar/SearchBar';
+// import "./NavBar.css";
 
-const NavBar = () => {
-    const dispatch = useDispatch();
 
-    const handleClick = () => {
-      console.log("Ingresar crear una actividad")
-        dispatch(getCountries());
- }
+// const NavBar = () => {
+//     const dispatch = useDispatch();
 
-return (
-        <nav>
-          <div >
-              <div className="navbar-links">
-               <Link to="/activitycreate">
-                  <button className="button" onClick={handleClick}>Crear un actividad turstica</button>
-               </Link>
-               <Link to="/about" className="link">
-                  <button className="button" onClick={handleClick}>Acerca de Mi</button>
-               </Link> 
-                </div>
-           </div>
-         </nav>
-    );
-};
+//     const handleClick = () => {
+//       console.log("Ingresar crear una actividad")
+//         dispatch(getCountries());
+//  }
 
-export default NavBar;
+// return (
+//         <nav>
+//           <div >
+//            <SearchBar /> 
+//               <div className="navbar-links">
+//                <Link to="/activitycreate">
+//                   <button className="button" onClick={handleClick}>Crear un actividad turstica</button>
+//                </Link>
+//                <Link to="/about" className="link">
+//                   <button className="button" onClick={handleClick}>Acerca de Mi</button>
+//                </Link> 
+//                 </div>
+//            </div>
+//          </nav>
+//     );
+// };
+
+// export default NavBar;
 
 

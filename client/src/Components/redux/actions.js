@@ -85,7 +85,6 @@ export const filterByContinent = (payload) => {
     }
 }
 export const filterByActivity = (payload) => {
-    console.log("accion 2")
     return {
         type: FILTER_BY_ACTIVITIES,
         payload

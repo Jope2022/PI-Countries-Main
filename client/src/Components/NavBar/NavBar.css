@@ -1,9 +1,11 @@
 .navbar-links {
     display: flex;
     justify-content: flex-end;
+    background-color: #c02d2d;
     
   }
   
   .button {
     margin-left: 10px;
+  
   }

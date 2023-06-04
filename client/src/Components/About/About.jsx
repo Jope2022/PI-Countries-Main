@@ -15,15 +15,15 @@ export default function About() {
             <div className="div">
              <div className="container">
                 <img className="containerAbout" src={img} alt="jose" />
-                <h1 className=" h1">Hola </h1>
-                <h1>Mi nombre es: </h1>
-                    <h1>Jose Maria Perez</h1>
-                    <h3 className="h3"> FullStrack Developer</h3>
-                    <h3 className="p">"Soy Argentino 45 años Estudiante <br />
+                <h1 className="h1About">Hola </h1>
+                <h2>Mi nombre es:</h2>
+                    <h3>Jose Maria Perez</h3>
+                    <h3 className="h3About"> FullStrack Developer</h3>
+                    <p className="pAbout">"Soy Argentino 45 años Estudiante <br />
                         de Henry y en esta app utilice todo <br /> lo aprendido
-                        en el Boodcamp." </h3>
-                    <h3>Titulo "Programador Superior"</h3>
-                    <button onClick={() => history.goBack()}>Regresar</button>
+                        en el Boodcamp." </p>
+                    <h4 className="h4About">Titulo "Programador Superior"</h4>
+                    <button className="botonAbout" onClick={() => history.goBack()}>Regresar</button>
                 
                       
                     <div className="containerImagenes1 .grupo1">
@@ -32,7 +32,7 @@ export default function About() {
                     <img className="containerImagenes1 .grupo1" src={css} alt="css" />
                     <img className="containerImagenes1 .grupo1" src={node} alt="node" />
                     <img className="containerImagenes1 .grupo1" src={HTML} alt="HTML" />
-                    <h4 className="h4">TECNOLOGUIAS QUE UTILIZE PARA LA APP</h4>
+                    <h5 className="h5About">TECNOLOGUIAS QUE UTILIZE PARA LA APP</h5>
                  
                     <img className="containerImagenes1 .grupo2" src={Post} alt="Post" />
                     <img className="containerImagenes1 .grupo2" src={React} alt="React" />
