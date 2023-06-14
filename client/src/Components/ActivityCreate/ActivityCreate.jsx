@@ -4,7 +4,6 @@ import {AUTUMN, SPRING, SUMMER, WINTER } from "../redux/action-types"
 import { useForm } from './useForm';
 import './ActivityCreate.css';
 import { useHistory} from 'react-router-dom';
-import ActivityTag from '../ActivityTag/ActivityTag';
 import imagenTuristica from "../../Img/imagenTuristica.jpg"
 import imagenTuristica1 from "../../Img/imagenTuristica1.jpg"
 
@@ -53,8 +52,8 @@ const ActivityCreate = () => {
     
         <div className='containerActivityCreate'>
          <div >
-             <img className='imagenTuristica' src={imagenTuristica} alt="jose" />
-             <img className='imagenTuristica1' src={imagenTuristica1} alt="jose1" />
+             <img className='imagenTuristica' src={imagenTuristica} alt="" />
+             <img className='imagenTuristica1' src={imagenTuristica1} alt="" />
          
             <div  className='form' >
                 <div >

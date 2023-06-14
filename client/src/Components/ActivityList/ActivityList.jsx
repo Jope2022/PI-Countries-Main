@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Activity from '../Activity/Activity';
-import { getActivities } from '../redux/actions';
+// import { getActivities } from '../redux/actions';
 import { useEffect } from 'react';
 import "./ActivityList.css";
 

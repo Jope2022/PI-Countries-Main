@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByActivity, filterByContinent, getActivities,getCountries, orderByName,
          orderByPopulation } from '../redux/actions';
-import { ALL, ALL_OF_AFRICA, ALL_OF_ANTARCTICA, ALL_OF_ASIA, ALL_OF_EUROPE, ALL_OF_N_AMERICA, 
+import { ALL_OF_AFRICA, ALL_OF_ANTARCTICA, ALL_OF_ASIA, ALL_OF_EUROPE, ALL_OF_N_AMERICA, 
          ALL_OF_OCEANIA, ALL_OF_S_AMERICA, ASCENDANT, DESCENDANT, MAJOR_POPULATION,
           MINOR_POPULATION } from '../redux/action-types';
 import "./Countries.css"
 
 const Countries = () => {
-    const countries = useSelector( state => state.countries );
+    // const countries = useSelector( state => state.countries );
     const activities = useSelector( state => state.activities );
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);

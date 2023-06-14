@@ -26,8 +26,9 @@ const CountryDetail = () => {
   return (
     <div>
          <div className="submit-button1" key={pais.name}>
+        <div className='containerDetail'> 
          <p>{pais.name}</p>
-         <img src={pais.flag ? pais.flag: "no hay banderas"} alt="" />
+         <img className='centrarBandera' src={pais.flag ? pais.flag: "no hay banderas"} alt="" />
           <p>Id: {pais.id}</p>
           <p>Capital: {pais.capital}</p>
           <p>Continent: {pais.continent}</p>
@@ -35,8 +36,10 @@ const CountryDetail = () => {
           <p>Area: {pais.area}</p>
           <p>Poblation: {pais.population}</p>
           {pais.activities.length > 0 && <ActivityList activities={pais.activities} />}
-          <button onClick={() => history.goBack()}>Regresar</button>
+          <button className='botonDetail' onClick={() => history.goBack()}>Regresar</button>
       </div>
+      </div>
+
     </div>
   )
  }

@@ -11,6 +11,10 @@
 	border: #fff;
   z-index: -2;
 
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  
 }
 
 .form {
@@ -103,10 +107,18 @@
 }
 
 .botomRegresar{
+  font-size: 22px;
+  border-radius: 15px;
+  color: white;
+  background-color: blue;
   margin-top: 40px;
   text-align: center;
-  margin-left: 150px;
+  margin-left: 130px;
 }
+
+
+
+
 .imagenTuristica {
   float: left;
   width: 600px;

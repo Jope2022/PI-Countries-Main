@@ -14,7 +14,8 @@ export default function About() {
     return (
             <div className="div">
              <div className="container">
-                <img className="containerAbout" src={img} alt="jose" />
+              <img className="containerAbout" src={img} alt="jose" />
+                
                 <h1 className="h1About">Hola </h1>
                 <h2>Mi nombre es:</h2>
                     <h3>Jose Maria Perez</h3>
@@ -23,9 +24,7 @@ export default function About() {
                         de Henry y en esta app utilice todo <br /> lo aprendido
                         en el Boodcamp." </p>
                     <h4 className="h4About">Titulo "Programador Superior"</h4>
-                    <button className="botonAbout" onClick={() => history.goBack()}>Regresar</button>
-                
-                      
+                    <button className="botonAbout" onClick={() => history.goBack()}>Regresar</button>                   
                     <div className="containerImagenes1 .grupo1">
                  
                     <img className="containerImagenes1 .grupo1" src={redux} alt="redux" />

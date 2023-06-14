@@ -8,6 +8,21 @@
   gap: 25px;
   margin: 0 auto;
   margin-bottom: 10px;
+	background-image: url('https://besthqwallpapers.com/Uploads/29-12-2020/149458/thumb-world-map-4k-blue-world-map-blue-background-world-map-concepts.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	color: #4909e9;
+	border: #fff;
+  margin-top: 0px;
+  z-index: -3;
+
+
 }
 .content{
   display: flex;
@@ -109,17 +124,46 @@
   align-items: center;
 }
 
-.pagination {
-  background-color: #c02d2d;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-  color: #333;
-  cursor: pointer;
-  font-size: 10px;
+/* .pagination {
+ border-radius: 10px;
+ color: orange;
+ cursor: pointer;
+  font-size: 12px;
   padding: 8px 16px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   margin-left: 650px;
-  width: 660px;
+  width: 900px;
+} */
+
+/* Estilos CSS para el paginado */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.buttonPagination {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  background-color: transparent;
+  color: honeydew;
+  cursor: pointer;
+}
+
+.centrarBanderaSeachBar{
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.centrarBandera{
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100px;
+  width: 250px;
+  border-radius: 5px;
+}
