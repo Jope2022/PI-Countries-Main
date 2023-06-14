@@ -11,17 +11,18 @@ const LandingPage = () => {
         dispatch(getCountries());
     }
    return (
-        <div className="container">
-            <h2 className="title">Bienvenido a un espacio dedicado a todos los paises del mundo...</h2>
-           
-            <h2>. Buscar Países</h2>
-            <h2>. Ordenar Países por Población y Alfabeto</h2>
-            <h2>. Filtrar Países por Continente y Actividad Turistica</h2>
-            <h2>. Crear una Actividad Turistica</h2>
-            <h2 className="subtitle"> Ingresa a la App</h2>
+        <div className="containerLoading">
+          <div className='h2Lading'>
+            <h2>Bienvenido a un espacio dedicado a todos los paises del mundo...</h2>
+            <h2># Buscar Países</h2>
+            <h2># Ordenar Países por Población y Alfabeto</h2>
+            <h2># Filtrar Países por Continente y Actividad Turistica</h2>
+            <h2># Crear una Actividad Turistica</h2>
+            <h2># Ingresa a la App</h2>
             <Link to='/home' className="link">  
-               <button className="button" onClick={handleClick}>Ingresar</button>
+               <button className="buttonLading" onClick={handleClick}>Ingresar</button>
             </Link>
+          </div>
         </div>
     ) 
 };
