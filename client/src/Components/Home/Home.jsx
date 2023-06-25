@@ -1,8 +1,6 @@
 import React from 'react';
 import {useSelector } from 'react-redux'
 import Loading from '../Loading/Loading';
-//import SearchBar from '../SearchBar/SearchBar';
-//import NavBar from "../NavBar/NavBar"
 import SearchBar from '../SearchBar/SearchBar';
 
 const Home = () => {    

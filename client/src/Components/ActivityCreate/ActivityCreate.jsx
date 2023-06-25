@@ -130,15 +130,13 @@ const ActivityCreate = () => {
                         </div>
                        
                     </form>
-                    <div> 
+                               <div className='botoncierreX' > 
                                  {Paises.map(pais =>{ 
-                                    return( <div>{pais} <button onClick={()=>{Quitar(pais)} }>X</button>  </div> )
+                                    return( <div >{pais} <button className='botoncierreX' onClick={()=>{Quitar(pais)} }>X</button>  </div> )
                                  })}
                                  </div>
-                                <div className='fotoTurista'>
-                                {/* <img  src={turistico} alt="turistico" /> */}
-                                </div>
-                    <div className='botonRegresar'>
+                              
+                    <div>
                     <button className='botomRegresar' onClick={() => history.goBack()}>Regresar</button>
                     </div>
                  </div>

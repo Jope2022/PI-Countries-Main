@@ -20,10 +20,8 @@ const SearchBar = () => {
     console.log("Ingresar crear una actividad")
       dispatch(getCountries());
 }
-
-
-  const handleChange = (event) => {
-    setName(event.target.value);
+const handleChange = (event) => {
+setName(event.target.value);
   };
 
   //  const handleResultsPerPageChange = (event) => {
@@ -58,8 +56,7 @@ const SearchBar = () => {
  
    console.log(setResultsPerPage)
 
-
-  return (
+return (
     <div className='containerSearchBar'>
       {loading ? ( // Muestra el Loader si loading es true
         <div className="loader-container">

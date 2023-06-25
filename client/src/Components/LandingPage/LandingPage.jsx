@@ -11,6 +11,7 @@ const LandingPage = () => {
         dispatch(getCountries());
     }
    return (
+    <div className='containerGeneral'>
         <div className="containerLoading">
           <div className='h2Lading'>
             <h2>Bienvenido a un espacio dedicado a todos los paises del mundo...</h2>
@@ -24,6 +25,7 @@ const LandingPage = () => {
             </Link>
           </div>
         </div>
+      </div>
     ) 
 };
 

@@ -12,32 +12,32 @@ import "./About.css"
 export default function About() {
     const history = useHistory();
     return (
-            <div className="div">
-             <div className="container">
-              <img className="containerAbout" src={img} alt="jose" />
-                
-                <h1 className="h1About">Hola </h1>
+           <div className="bodyAbout ">
+            <div className="containerAbout">
+              <img className="imgAbout" src={img} alt="jose" />
+               <h1>Hola </h1>
                 <h2>Mi nombre es:</h2>
                     <h3>Jose Maria Perez</h3>
-                    <h3 className="h3About"> FullStrack Developer</h3>
-                    <p className="pAbout">"Soy Argentino 45 años Estudiante <br />
+                    <h4> Full Strack Developer</h4>
+                    <p>"Soy Argentino 45 años Estudiante <br />
                         de Henry y en esta app utilice todo <br /> lo aprendido
                         en el Boodcamp." </p>
-                    <h4 className="h4About">Titulo "Programador Superior"</h4>
-                    <button className="botonAbout" onClick={() => history.goBack()}>Regresar</button>                   
-                    <div className="containerImagenes1 .grupo1">
+                    <h5>Titulo "Programador Superior"</h5>
+                    <button  onClick={() => history.goBack()}>Regresar</button>                   
                  
-                    <img className="containerImagenes1 .grupo1" src={redux} alt="redux" />
-                    <img className="containerImagenes1 .grupo1" src={css} alt="css" />
-                    <img className="containerImagenes1 .grupo1" src={node} alt="node" />
-                    <img className="containerImagenes1 .grupo1" src={HTML} alt="HTML" />
-                    <h5 className="h5About">TECNOLOGUIAS QUE UTILIZE PARA LA APP</h5>
-                 
-                    <img className="containerImagenes1 .grupo2" src={Post} alt="Post" />
-                    <img className="containerImagenes1 .grupo2" src={React} alt="React" />
-                    <img className="containerImagenes1 .grupo2" src={Java} alt="Java" />
+                    <div className="tech-containerAbout">
+                 <div className="tech-container img ">
+                 <h5>TECNOLOGUIAS QUE UTILIZE PARA LA APP</h5>
+                    <img src={redux} alt="redux" />
+                    <img src={css} alt="css" />
+                    <img src={node} alt="node" />
+                    <img src={HTML} alt="HTML" />
+                    <img src={Post} alt="Post" />
+                    <img src={React} alt="React" />
+                    <img src={Java} alt="Java" />
+                    </div>
                     </div>
                 </div>
-            </div>
+                </div>
     );
 }

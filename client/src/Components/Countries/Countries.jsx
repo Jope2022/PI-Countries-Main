@@ -8,7 +8,7 @@ import { ALL_OF_AFRICA, ALL_OF_ANTARCTICA, ALL_OF_ASIA, ALL_OF_EUROPE, ALL_OF_N_
 import "./Countries.css"
 
 const Countries = () => {
-    // const countries = useSelector( state => state.countries );
+    const countries = useSelector( state => state.countries );
     const activities = useSelector( state => state.activities );
     const dispatch = useDispatch();
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -44,7 +44,8 @@ const Countries = () => {
     
     console.log("currentPage: ", currentPage);
     console.log("order: ", order);
-
+    console.log(countries)
+    
     return (
            <div className="cardsContainer">
               <div>

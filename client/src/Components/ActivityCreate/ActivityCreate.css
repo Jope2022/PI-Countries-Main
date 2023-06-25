@@ -106,18 +106,6 @@
   margin-bottom: 50px;
 }
 
-.botomRegresar{
-  font-size: 22px;
-  border-radius: 15px;
-  color: white;
-  background-color: blue;
-  margin-top: 40px;
-  text-align: center;
-  margin-left: 130px;
-}
-
-
-
 
 .imagenTuristica {
   float: left;
@@ -139,4 +127,19 @@
 .actividadTuristica {
   margin-left: 800px; /* Ajusta el valor según el espacio que deseas dejar entre la imagen y la actividad turística */
 
+}
+
+.botoncierreX {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  margin-bottom: 1px; /* Agrega un margen inferior para separar los elementos */
+  line-height: 1;
+}
+
+.botoncierreX button {
+  width: 10px;
+  height: 10px;
+  font-size: 12px;
 }
